@@ -45,6 +45,72 @@ if [[ -x "$CONDA_ROOT/bin/conda" ]]; then
     }
 fi
 
+
+# ============================================================
+# Completion
+# ============================================================
+
+autoload -Uz compinit
+compinit
+
+# Case-insensitive completion.
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Show a menu when there are multiple completion matches.
+zstyle ':completion:*' menu select
+
+
+# ============================================================
+# History Search
+# ============================================================
+
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+
+
+# ============================================================
+# Autosuggestions
+# ============================================================
+
+if [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+
+# ============================================================
+# Syntax Highlighting
+# ============================================================
+
+# Keep this near the end of .zshrc.
+if [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+
+# ============================================================
+# Prompt
+# ============================================================
+
+autoload -Uz vcs_info
+
+precmd() {
+    vcs_info
+}
+
+zstyle ':vcs_info:git:*' formats ' %F{yellow}(%b)%f'
+
+setopt PROMPT_SUBST
+
+PROMPT='%F{green}%n@%m%f %F{blue}%~%f${vcs_info_msg_0_}
+%F{cyan}❯%f '
+
+
 # ============================================================
 # Fastfetch
 # ============================================================

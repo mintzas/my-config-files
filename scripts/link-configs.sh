@@ -65,3 +65,22 @@ if [[ "$backed_up" == true ]]; then
 fi
 
 printf '\nConfiguration linking complete.\n'
+
+
+# ------------------------------------------------------------
+# Fastfetch
+# ------------------------------------------------------------
+
+link_config \
+    "$repo_dir/fastfetch/config.jsonc" \
+    "$HOME/.config/fastfetch/config.jsonc"
+
+# ------------------------------------------------------------
+# Summary
+# ------------------------------------------------------------
+
+if [[ "$backed_up" == true ]]; then
+    printf '\nExisting configuration was backed up under:\n%s\n' "$backup_dir"
+fi
+
+printf '\nConfiguration linking complete.\n'
