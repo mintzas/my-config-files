@@ -60,12 +60,6 @@ link_config() {
 link_config "$repo_dir/zsh/.zshenv" "$HOME/.zshenv"
 link_config "$repo_dir/zsh/.zshrc" "$HOME/.zshrc"
 
-if [[ "$backed_up" == true ]]; then
-    printf '\nExisting configuration was backed up under:\n%s\n' "$backup_dir"
-fi
-
-printf '\nConfiguration linking complete.\n'
-
 
 # ------------------------------------------------------------
 # Fastfetch
@@ -83,6 +77,14 @@ link_config \
     "$repo_dir/kitty/kitty.conf" \
     "$HOME/.config/kitty/kitty.conf"
 
+
+# ------------------------------------------------------------
+# Ghostty
+# ------------------------------------------------------------
+
+link_config \
+    "$repo_dir/ghostty/config.ghostty" \
+    "$HOME/.config/ghostty/config.ghostty"
 
 # ------------------------------------------------------------
 # Summary
