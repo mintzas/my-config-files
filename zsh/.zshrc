@@ -44,3 +44,12 @@ if [[ -x "$CONDA_ROOT/bin/conda" ]]; then
         conda "$@"
     }
 fi
+
+# ============================================================
+# Fastfetch
+# ============================================================
+
+# Show system information when opening an interactive terminal.
+if command -v fastfetch >/dev/null 2>&1; then
+    fastfetch
+fi
