@@ -27,3 +27,20 @@ if command -v nvim >/dev/null 2>&1; then
     alias vi='nvim'
 fi
 
+
+# ============================================================
+# Conda
+# ============================================================
+
+# Miniconda installation location.
+CONDA_ROOT="$HOME/miniconda3"
+
+# Lazy-load Conda the first time it is used.
+# This avoids initializing Conda every time Zsh starts.
+if [[ -x "$CONDA_ROOT/bin/conda" ]]; then
+    conda() {
+        unset -f conda
+        eval "$("$CONDA_ROOT/bin/conda" shell.zsh hook)"
+        conda "$@"
+    }
+fi
