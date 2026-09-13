@@ -1,0 +1,17 @@
+# ============================================================
+# Ghostty Configuration
+# ============================================================
+
+# Keep sizing close to the Kitty setup.
+font-size = 11
+
+# Ghostty automatically detects Zsh.
+shell-integration = detect
+
+# New windows/tabs/splits follow the current working directory.
+window-inherit-working-directory = true
+tab-inherit-working-directory = true
+split-inherit-working-directory = true
+
+# Larger terminal history.
+scrollback-limit = 10000000
