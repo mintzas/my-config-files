@@ -87,6 +87,18 @@ link_config \
     "$HOME/.config/ghostty/config.ghostty"
 
 # ------------------------------------------------------------
+# VS Code
+# ------------------------------------------------------------
+
+link_config \
+    "$repo_dir/vscode/settings.json" \
+    "$HOME/.config/Code/User/settings.json"
+
+link_config \
+    "$repo_dir/vscode/keybindings.json" \
+    "$HOME/.config/Code/User/keybindings.json"
+
+# ------------------------------------------------------------
 # Summary
 # ------------------------------------------------------------
 
